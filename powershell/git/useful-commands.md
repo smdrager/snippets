@@ -75,6 +75,9 @@ List local branches.
 List remote branches.
 `git branch -r`
 
+List both local and remote branches.
+`git branch -a`
+
 ## Creating a branch
 Create a new branch from your existing branch, with the name specified.
 `git checkout -b <new-branch-name>`
@@ -89,7 +92,14 @@ Or, you can create the branch and then switch to it.
 ## Remove a branch
 Remove local branch.
 `git branch -d <branch-name>`
+Additionally, if you have changes which have not been merged (and therefore will be lost entirely when you delete), you can use:
+`git branch -D <branch-name>` or
+`git branch -d -f <branch-name>` to force the delete.
 
-Remove remove branch.
+Remove remote branch.
+`git push origin -d <branch-name>`
+or, since `-d` is short for `--delete`, you can use:
 `git push origin --delete <branch-name>`
 
+After the branch is removed from both local and remote, you must prune the obsolete tracking branch or else it will continue to appear in `git brnach -a`.
+`git fetch --all --prune`
