@@ -1,4 +1,4 @@
-## Basics for navigating folders
+# Basics for navigating folders
 Reminder for navigating a directory structure in powershell.
 
 - Go up a directory: `cd ..`
@@ -8,10 +8,10 @@ Reminder for navigating a directory structure in powershell.
 - Create a directory in current location: `mkdir "<directory-name>"
 - Remove a file or directory: `rm "<file-or-directory>"`
 
-# Overview
+# Terminology Overview
 
 - **init** - Sets up a directory as a git repo.
-- **branch** - 
+- **branch** - Logical tracking split, enabling changes to be managed and tracked against it, independent of other branches.
 - **add** / **stage** - Tracks changes for a commit. 
 - **stage** - Mark changes as ready to be committed.
 - **commit** - Commit staged changes to the repo.
@@ -19,15 +19,16 @@ Reminder for navigating a directory structure in powershell.
 - **fetch** - Get latest changes from a remote.
 - **merge** - Merges commits from one branch into another.
 - **pull** - Shorthand for fetch + merge.
+- **switch** / **checkout** - Switch branches.
 
-## Update Git
+# Update Git
 Make sure you are running latest git. New things are added regularly, and you want the latest and greatest.
 `git update-git-for-windows`
 
 Sometimes the above fails due to an SSL issue. If that does happen, and you have winget available, use it as an alterative:
 `winget install --id Git.Git -e --source winget`
 
-## Useful Default Configs
+# Useful Default Configs
 The default branch name for git is "master". Change it to "main" with the line below:
 `git config --global init.defaultBranch main`
 
@@ -37,8 +38,9 @@ When working in a new local branch, you pretty much always want to push it to a 
 Automatically set up remote when pushing.
 `git config --global --add --bool push.autoSetupRemote true`
 
+# Initializing
+
 ## Initializing a Local Repo
-### Starting local
 Initialize a folder using the default branch name (master normally, or see above for changing the default).
 `git init`
 
@@ -62,5 +64,32 @@ If there were already some files on the remote (such as a license file), use the
 `git pull origin main --allow-unrelated-histories`
 
 ## Initializing a Remote into a Local
-Super easy.
-`git clone <https://remote-url.git>`
+Initialize a local repo from a remote.
+`git clone <https://remote-url/some-repo>`
+
+# Branching
+## List branches
+List local branches.
+`git branch`
+
+List remote branches.
+`git branch -r`
+
+## Creating a branch
+Create a new branch from your existing branch, with the name specified.
+`git checkout -b <new-branch-name>`
+
+Or, you can create the branch and then switch to it.
+`git branch <new-branch-name>`
+`git switch <new-branch-name>`
+
+## Switching branches
+`git switch <target-branch>`
+
+## Remove a branch
+Remove local branch.
+`git branch -d <branch-name>`
+
+Remove remove branch.
+`git push origin --delete <branch-name>`
+
