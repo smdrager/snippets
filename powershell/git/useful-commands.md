@@ -1,10 +1,24 @@
 ## Basics for navigating folders
-Reminder for navigating a folder structure in powershell.
+Reminder for navigating a directory structure in powershell.
 
 - Go up a directory: `cd ..`
-- Go to a specific folder: `cd C:\some\folder`
-- Go to a directory in this one: `cd some`
+- Go to a specific directory: `cd C:\<directory-name>\<child-directory-name>`
+- Go to a directory in this one: `cd <directory-name>`
 - List files in current directory: `ls`
+- Create a directory in current location: `mkdir "<directory-name>"
+- Remove a file or directory: `rm "<file-or-directory>"`
+
+# Overview
+
+- **init** - Sets up a directory as a git repo.
+- **branch** - 
+- **add** / **stage** - Tracks changes for a commit. 
+- **stage** - Mark changes as ready to be committed.
+- **commit** - Commit staged changes to the repo.
+- **push** - Push local changes to the upstream branch (usually a remote).
+- **fetch** - Get latest changes from a remote.
+- **merge** - Merges commits from one branch into another.
+- **pull** - Shorthand for fetch + merge.
 
 ## Update Git
 Make sure you are running latest git. New things are added regularly, and you want the latest and greatest.
@@ -22,7 +36,8 @@ When working in a new local branch, you pretty much always want to push it to a 
 
 Automatically set up remote when pushing.
 `git config --global --add --bool push.autoSetupRemote true`
-## Initializing a Repo
+
+## Initializing a Local Repo
 ### Starting local
 Initialize a folder using the default branch name (master normally, or see above for changing the default).
 `git init`
@@ -36,7 +51,7 @@ Add all existing files to staged.
 Commit all initial files.
 `git commit -m "<your-initial-message>"`
 
-### Initializing a local into a remote
+## Initializing a Local into a Remote
 Add a remote named "origin" at a URL.
 `git remote add origin <https://remote-url.git>`
 
@@ -45,3 +60,7 @@ If the repo is empty you can just push your local committed changes to it.
 
 If there were already some files on the remote (such as a license file), use the following the pull them.
 `git pull origin main --allow-unrelated-histories`
+
+## Initializing a Remote into a Local
+Super easy.
+`git clone <https://remote-url.git>`
