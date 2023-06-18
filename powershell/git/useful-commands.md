@@ -92,7 +92,7 @@ Or, you can create the branch and then switch to it.
 ## Remove a branch
 Remove local branch.
 `git branch -d <branch-name>`
-Additionally, if you have changes which have not been merged (and therefore will be lost entirely when you delete), you can use:
+Additionally, if you have commits which have not been merged (and therefore will be lost entirely when you delete), you can use:
 `git branch -D <branch-name>` or
 `git branch -d -f <branch-name>` to force the delete.
 
@@ -103,3 +103,7 @@ or, since `-d` is short for `--delete`, you can use:
 
 After the branch is removed from both local and remote, you must prune the obsolete tracking branch or else it will continue to appear in `git brnach -a`.
 `git fetch --all --prune`
+
+# Reset local changes to match remote
+You may want to `git fetch --all` first. The below will revert all local changes so that your local repo matches the target branch.
+`git reset --hard origin/<branch-name>`
