@@ -7,6 +7,7 @@ Reminder for navigating a directory structure in powershell.
 - List files in current directory: `ls`
 - Create a directory in current location: `mkdir "<directory-name>"`
 - Remove a file or directory: `rm "<file-or-directory>"`
+- Remove a directory forcefully: `rm "<file-or-directory>" -r -force`
 
 # Terminology Overview
 
