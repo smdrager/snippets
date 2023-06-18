@@ -128,7 +128,7 @@ or, since `-d` is short for `--delete`, you can use:
 
 `git push origin --delete <branch-name>`
 
-After the branch is removed from both local and remote, you must prune the obsolete tracking branch or else it will continue to appear in `git brnach -a`.
+After the branch is removed from both local and remote, you must prune the obsolete tracking branch or else it will continue to appear in `git branch -a`.
 
 `git fetch --all --prune`
 
